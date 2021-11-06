@@ -17,9 +17,6 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.0.5",
-    "@mui/material": "^5.0.6",
-    "@mui/styled-engine-sc": "^5.0.4",
-    "styled-components": "^5.3.3"
+    
   }
 }

@@ -9,6 +9,7 @@ import category from './documents/category'
 import person from './documents/person'
 import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
+import hero from './documents/hero'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -33,6 +34,7 @@ export default createSchema({
     simplePortableText,
     // The following are document types which will appear
     // in the studio.
+    hero,
     category,
     person,
     sampleProject,
