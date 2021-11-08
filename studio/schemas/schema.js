@@ -13,6 +13,7 @@ import sampleProject from './documents/sampleProject'
 import siteSettings from './documents/siteSettings'
 import hero from './documents/hero'
 import product from './documents/product'
+import accessory from './documents/accessory'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -36,6 +37,7 @@ export default createSchema({
     projectPortableText,
     simplePortableText,
     product,
+    accessory,
     hero,
     // The following are document types which will appear
     // in the studio.
