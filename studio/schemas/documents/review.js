@@ -14,7 +14,7 @@ export default {
       name: 'popularity',
       title: 'Popularity',
       type: 'number',
-      description: 'The popularity is a number between 0 - 100',
+      description: 'The popularity is a decimal number between 0 - 5',
     },
     {
       name: 'jobtitle',
