@@ -85,8 +85,7 @@ const Review = () => {
 								        </Typography>
 								      </CardContent>
 								      <CardActions disableSpacing>
-								      	<Typography variant="caption" style={{fontWeight: 'bold'}} gutterBottom>{node.title}</Typography>
-								      	<Typography variant="caption" gutterBottom>{node.jobtitle}</Typography>
+								      	<Typography variant="caption" style={{fontWeight: 'bold'}} gutterBottom>{node.title} {<br/>} <span style={{fontWeight: 'normal'}}>{node.jobtitle}</span></Typography>
 								        <ExpandMore
 								          expand={expanded}
 								          onClick={handleExpandClick}
