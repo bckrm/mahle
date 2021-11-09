@@ -50,7 +50,7 @@ const Product = () => {
 	      }
 	    `}
       render={data => (
-      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto'}}>
+      	<Box id="product" sx={{ flexGrow: 1, width: '50%', margin: 'auto'}}>
 		    	<Card sx={{ maxWidth: '100%', border: 0, boxShadow: 5, borderRadius: 0, marginTop: -35 }}>
 			      <CardMedia
 			        component="img"

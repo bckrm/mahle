@@ -40,7 +40,7 @@ const Product = () => {
 	      }
 	    `}
       render={data => (
-      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto', marginTop: 10}}>
+      	<Box id="accessories" sx={{ flexGrow: 1, width: '50%', margin: 'auto', marginTop: 10}}>
 		    	<Typography variant="h4" component="div" color="#ce467b" fontWeight="bold">
 			      Accessories
 			    </Typography>

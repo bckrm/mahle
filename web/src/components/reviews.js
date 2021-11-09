@@ -67,7 +67,7 @@ const Review = () => {
       render={data => (
       	<>
 	      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto'}}>
-	      		<Grid container spacing={3} style={{margin: '200px auto 0 auto', width: '90%'}}>
+	      		<Grid id="reviews" container spacing={3} style={{margin: '200px auto 0 auto', width: '90%'}}>
 	      			<Grid item md={12}><Typography variant="h4" fontWeight="bold" color="darkblue" textAlign="center">REVIEWS</Typography></Grid>
 		      		{mapEdgesToNodes(data.allSanityReview) &&
 				        mapEdgesToNodes(data.allSanityReview).map(node => (
@@ -110,7 +110,7 @@ const Review = () => {
 				    </Grid>
 	      		<Box sx={{ flexGrow: 1, width: '100%', backgroundColor: '#002984', marginTop: -20, paddingTop: 20, paddingBottom: 10}}>
 	      			<Grid container spacing={4} style={{marginTop: 50}}>
-	      				<Grid item md={8}>
+	      				<Grid id="faqs" item md={8}>
 	      					<Typography variant="h4" component="div" style={{color: 'white', fontWeight: 'bold', margin: 20}}>FAQs</Typography>
 	      					<FAQs/>
 	      				</Grid>

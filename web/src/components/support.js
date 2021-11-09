@@ -33,7 +33,7 @@ const Product = () => {
 	      }
 	    `}
       render={data => (
-    		<Grid container spacing={2} style={{color: 'white', margin: 20}}>
+    		<Grid id="support" container spacing={2} style={{color: 'white', margin: 20}}>
     			<Grid item md={6}>
     				<Typography variant="h5" component="div" style={{fontWeight: 'bold', textTransform: 'uppercase'}}>{data.sanitySupport.title}</Typography>
     				<Typography variant="body" component="div">

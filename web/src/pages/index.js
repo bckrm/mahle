@@ -10,6 +10,8 @@ import GraphQLErrorList from "../components/graphql-error-list";
 import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import ScrollToTop from "react-scroll-to-top";
 
 require('typeface-roboto');
 
@@ -48,7 +50,11 @@ const IndexPage = props => {
   }
 
   return (
-      <Layout></Layout>
+    <>
+      <Layout>
+      </Layout>
+      <ScrollToTop smooth component={<ArrowCircleUpIcon style={{marginTop: 5}}/>} />
+    </>
   );
 };
 
