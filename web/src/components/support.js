@@ -33,28 +33,34 @@ const Product = () => {
 	      }
 	    `}
       render={data => (
-      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto'}}>
-      		<Grid container spacing={2}>
-      			<Grid item md={8}>
-      				<Typography variant="h5" component="div" style={{fontWeight: 'bold'}}>{data.sanitySupport.title}</Typography>
-      				<Typography variant="body" component="div">
-					         {data.sanitySupport._rawDescription && <BlockContent blocks={data.sanitySupport._rawDescription || []} />}
-				      </Typography>
-      			</Grid>
-      			<Grid item md={4} xs={4}>
-      				{data.sanitySupport.details &&
-				        data.sanitySupport.details.map(detail => (
-				        	<>
-					          <img style={{color: 'red'}} height="50" src={detail.image ? detail.image.asset.url : ''} />
-					          <Typography>{detail.title}</Typography>
-					          <Typography variant="body" component="div">
-						         {detail._rawDescription && <BlockContent blocks={detail._rawDescription || []} />}
-					      		</Typography>
-					      	</>
-				      ))}
-      			</Grid>
-      		</Grid>
-		    </Box>
+    		<Grid container spacing={2} style={{color: 'white', margin: 20}}>
+    			<Grid item md={6}>
+    				<Typography variant="h5" component="div" style={{fontWeight: 'bold', textTransform: 'uppercase'}}>{data.sanitySupport.title}</Typography>
+    				<Typography variant="body" component="div">
+				         {data.sanitySupport._rawDescription && <BlockContent blocks={data.sanitySupport._rawDescription || []} />}
+			      </Typography>
+    			</Grid>
+    			<Grid item md={5} xs={4}>
+    				{data.sanitySupport.details &&
+			        data.sanitySupport.details.map(detail => (
+			        	<>
+			        		<Grid container spacing={2} style={{marginLeft: 40}}>
+			        			<Grid item md={1}>
+					          	<img style={{color: 'red'}} height="50" src={detail.image ? detail.image.asset.url : ''} />
+					          </Grid>
+					          <Grid item md={11}>
+						          <Typography display="block" variant="caption" gutterBottom>
+							          <div style={{marginTop: 5}}>{detail.title}</div>
+							          {detail._rawDescription && (
+							          	detail._rawDescription && <BlockContent blocks={detail._rawDescription || []} />
+							          )}
+							        </Typography>
+						         </Grid>
+					      	</Grid>
+				      	</>
+			      ))}
+    			</Grid>
+    		</Grid>
       )}
     />
     

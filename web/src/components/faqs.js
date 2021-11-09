@@ -9,6 +9,7 @@ import { StaticQuery, graphql } from "gatsby";
 import {mapEdgesToNodes} from "../lib/helpers";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import BlockContent from '../components/block-content';
 
 const FAQs = () => {
   const [expanded, setExpanded] = React.useState(false);
@@ -34,27 +35,25 @@ const FAQs = () => {
 
 
       render={data => (
-        <div>
-          <Box sx={{flexGrow: 1, marginTop: 20}}>
-            {mapEdgesToNodes(data.allSanityFaq) &&
-              mapEdgesToNodes(data.allSanityFaq).map(node => (
-                <Accordion expanded={expanded === node.id} onChange={handleChange(node.id)}>
-                  <AccordionSummary
-                    expandIcon={expanded ? <RemoveIcon/> : <AddIcon />}
-                    aria-controls={node.id + "-content"}
-                    id={node.id + "-header"}
-                  >
-                    <Typography sx={{ width: '33%', flexShrink: 0 }}>{node.title}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>
-                      {data.allSanityFaq._rawDescription && <BlockContent blocks={data.allSanityFaq._rawDescription || []} />}
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-              ))
-            }
-          </Box>
+        <div style={{margin: 20}}>
+          {mapEdgesToNodes(data.allSanityFaq) &&
+            mapEdgesToNodes(data.allSanityFaq).map(node => (
+              <Accordion expanded={expanded === node.id} onChange={handleChange(node.id)} style={{backgroundColor: '#3f51b5', color: 'white', marginBottom: 10}}>
+                <AccordionSummary
+                  expandIcon={expanded ? <RemoveIcon style={{color: 'white'}}/> : <AddIcon style={{color: 'white'}}/>}
+                  aria-controls={node.id + "-content"}
+                  id={node.id + "-header"}
+                >
+                  <Typography sx={{ width: '100%', flexShrink: 0, fontWeight: 'bold' }}>{node.title}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography style={{color: 'white'}}>
+                    {node._rawDescription && <BlockContent style={{color: 'white'}} blocks={node._rawDescription || []} />}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))
+          }
         </div>
       )}
     />

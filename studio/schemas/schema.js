@@ -18,6 +18,7 @@ import faq from './documents/faq'
 import educational_resource from './documents/educational_resource'
 import detail from './documents/detail'
 import support from './documents/support'
+import review from './documents/review'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -47,6 +48,7 @@ export default createSchema({
     educational_resource,
     detail,
     support,
+    review,
     // The following are document types which will appear
     // in the studio.
     // category,

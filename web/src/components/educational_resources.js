@@ -25,10 +25,8 @@ const EducationalResources = () => {
 	      }
 	    `}
       render={data => (
-      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto', marginTop: 20}}>
-		    	<Typography variant="h7" component="div" color="#ce467b" fontWeight="bold">
-			      Educational Resources
-			    </Typography>
+      	<div style={{color: 'white'}}>
+		    	
 			    <ul>
 			    	{mapEdgesToNodes(data.allSanityEducationalResource) &&
 			        mapEdgesToNodes(data.allSanityEducationalResource).map(node => (
@@ -37,7 +35,7 @@ const EducationalResources = () => {
 				    	
 			    </ul>
       				
-		    </Box>
+		    </div>
       )}
     />
     
