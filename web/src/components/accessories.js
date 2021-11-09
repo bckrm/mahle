@@ -18,13 +18,6 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import {mapEdgesToNodes} from "../lib/helpers";
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'left',
-  boxShadow: 'none'
-}));
-
 const Product = () => {
   return (
   	<StaticQuery

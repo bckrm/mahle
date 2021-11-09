@@ -14,6 +14,10 @@ import siteSettings from './documents/siteSettings'
 import hero from './documents/hero'
 import product from './documents/product'
 import accessory from './documents/accessory'
+import faq from './documents/faq'
+import educational_resource from './documents/educational_resource'
+import detail from './documents/detail'
+import support from './documents/support'
 
 // Object types
 import bioPortableText from './objects/bioPortableText'
@@ -39,6 +43,10 @@ export default createSchema({
     product,
     accessory,
     hero,
+    faq,
+    educational_resource,
+    detail,
+    support,
     // The following are document types which will appear
     // in the studio.
     // category,

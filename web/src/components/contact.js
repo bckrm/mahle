@@ -13,7 +13,7 @@ export default function Contact() {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1, width: '50%', margin: 'auto', backgroundColor: '#002984' }}>
+      <Box sx={{ flexGrow: 1, width: '50%', margin: '70px auto', backgroundColor: '#002984' }}>
         <Grid container spacing={3}>
           <Grid item md={12}>
             <Typography variant="h5" component="div" color="white" fontWeight="bold" textAlign="center">Want to try it out?</Typography>
