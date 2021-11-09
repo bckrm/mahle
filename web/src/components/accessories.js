@@ -51,19 +51,19 @@ const Product = () => {
 		    	<Typography variant="h4" component="div" color="#ce467b" fontWeight="bold">
 			      Accessories
 			    </Typography>
-			    <Grid container spacing={10}>
+			    <Grid container spacing={10} style={{marginTop: 10}}>
 			    	{mapEdgesToNodes(data.allSanityAccessory) &&
 			        mapEdgesToNodes(data.allSanityAccessory).map(node => (
 			          <Grid item key={node.id} md={4} xs={4}>
-			          	<Card sx={{ maxWidth: '100%', boxShadow: 'none', textAlign: 'center' }}>
+			          	<Card sx={{ maxWidth: 345, boxShadow: 'none', textAlign: 'center' }}>
 							      <CardMedia
 							        component="img"
 							        image={node.image.asset.url}
 							        alt={node.sku}
 							      />
 							      <CardContent textAlign="center">
-							        <Typography gutterBottom variant="h5" component="p">{node.sku}</Typography>
-							        <Typography variant="h5" component="p">{node.title}</Typography>
+							        <Typography gutterBottom variant="h7" component="div">{node.sku}</Typography>
+							        <Typography variant="h7" component="div">{node.title}</Typography>
 							      </CardContent>
 							    </Card>
 			          </Grid>
