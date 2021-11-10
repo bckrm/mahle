@@ -17,5 +17,6 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
+    "react-scroll-to-top": "^1.0.5"
   }
 }
