@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import Img from "gatsby-image";
 import BlockContent from '../components/block-content';
 import Chip from '@mui/material/Chip';
@@ -20,32 +19,32 @@ import Stack from '@mui/material/Stack';
 import FAQs from "./faqs";
 import EducationalResources from "./educational_resources";
 import Support from "./support";
+import SingleReviewElement from "./single-review-element";
 import Collapse from '@mui/material/Collapse';
 import {mapEdgesToNodes} from "../lib/helpers";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 import Rating from '@mui/material/Rating';
-import {format} from 'date-fns'
-
-
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import {format} from 'date-fns';
+import ItemsCarousel from 'react-items-carousel';
+import styled from 'styled-components';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const Review = () => {
-	const [expanded, setExpanded] = React.useState(false);
+	
+  const [activeItemIndex, setActiveItemIndex] = React.useState(0);
+  const chevronWidth = 40;
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const commonStyles = {
+	  bgcolor: 'background.paper',
+	  borderColor: 'text.primary',
+	  m: 1,
+	  border: 1,
+	  width: '5rem',
+	  height: '2rem'
+	};
 
   return (
   	<StaticQuery
@@ -54,6 +53,7 @@ const Review = () => {
 	        allSanityReview {
 		        edges {
 		          node {
+		          	id
 		            publishedAt
 		            popularity
 		            jobtitle
@@ -66,49 +66,38 @@ const Review = () => {
 	    `}
       render={data => (
       	<>
-	      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto'}}>
-	      		<Grid id="reviews" container spacing={3} style={{margin: '200px auto 0 auto', width: '90%'}}>
-	      			<Grid item md={12}><Typography variant="h4" fontWeight="bold" color="darkblue" textAlign="center">REVIEWS</Typography></Grid>
-		      		{mapEdgesToNodes(data.allSanityReview) &&
-				        mapEdgesToNodes(data.allSanityReview).map(node => (
-				        	<Grid item md={4}>
-					        	<Card>
-								      <CardHeader
-								        title={<Rating name="read-only" value={node.popularity} size="large" style={{color: "white"}} precision={0.5} readOnly />}
-								        style={{backgroundColor: '#bd4378', textAlign: 'center'}}
-								      />
-								      <CardContent>
-								        <Typography variant="body2" color="text.secondary">
-								          {node._rawComment && (
-							          		node._rawComment && <BlockContent blocks={node._rawComment || []} />
-							          	)}
-								        </Typography>
-								      </CardContent>
-								      <CardActions disableSpacing>
-								      	<Typography variant="caption" style={{fontWeight: 'bold'}} gutterBottom>{node.title} {<br/>} <span style={{fontWeight: 'normal'}}>{node.jobtitle}</span></Typography>
-								        <ExpandMore
-								          expand={expanded}
-								          onClick={handleExpandClick}
-								          aria-expanded={expanded}
-								          aria-label="show more"
-								        >
-								          <ExpandMoreIcon />
-								        </ExpandMore>
-								      </CardActions>
-								      <Collapse in={expanded} timeout="auto" unmountOnExit>
-								        <CardContent>
-								          <Typography paragraph>Method:</Typography>
-								          <Typography paragraph>
-								            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-								            aside for 10 minutes.
-								          </Typography>
-								        </CardContent>
-								      </Collapse>
-								    </Card>
-								  </Grid>
-				      ))}
+      		<Typography id="reviews" variant="h4" fontWeight="bold" color="darkblue" component="div" style={{marginTop: 150, paddingBottom: 50}} textAlign="center">REVIEWS</Typography>
+	      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto' ,backgroundColor: '#002984'}}>
+	      		<Grid container spacing={3} style={{margin: '100px auto 0 auto', width: '100%'}}>
+			        	{mapEdgesToNodes(data.allSanityReview).length <= 3 && (
+									mapEdgesToNodes(data.allSanityReview).map(node => (
+										<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} />
+						    )))}
+
+								{
+							    mapEdgesToNodes(data.allSanityReview).length > 3 && (
+										<div style={{ width: '100%', marginTop: -150, overflow: 'hidden', margin: 'auto 20px', padding: `0 ${chevronWidth}px`}}>
+												<ItemsCarousel
+													requestToChangeActive={setActiveItemIndex}
+													activeItemIndex={activeItemIndex}
+													numberOfCards={3}
+													gutter={30}
+													leftChevron={<IconButton size="small"><ChevronLeftIcon /></IconButton>}
+													rightChevron={<IconButton size="small"><ChevronRightIcon/></IconButton>}
+													outsideChevron
+													chevronWidth={chevronWidth}
+												>
+													{mapEdgesToNodes(data.allSanityReview).map(node => (
+														<div style={{ height: 'auto', background: 'transparent' }}>
+															<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} jobtitle={node.jobtitle} />
+														</div>
+													))}
+												</ItemsCarousel>
+										</div>
+									)
+								}
 				    </Grid>
-	      		<Box sx={{ flexGrow: 1, width: '100%', backgroundColor: '#002984', marginTop: -20, paddingTop: 20, paddingBottom: 10}}>
+	      		<Box sx={{ flexGrow: 1, width: '100%', backgroundColor: '#002984', marginTop: -25, paddingTop: 20, paddingBottom: 10}}>
 	      			<Grid container spacing={4} style={{marginTop: 50}}>
 	      				<Grid id="faqs" item md={8}>
 	      					<Typography variant="h4" component="div" style={{color: 'white', fontWeight: 'bold', margin: 20}}>FAQs</Typography>
