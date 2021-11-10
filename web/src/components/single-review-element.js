@@ -40,40 +40,48 @@ export default function SingleReviewElement(props) {
     	setExpanded(!expanded);
   	};
 
-
+  	 // style={{minHeight: 300, maxHeight: 'auto', height: '100%'}}>
 	return (
-		<Card>
+		<Card style={{zIndex: '2'}}>
 			<CardHeader
 			title={<Rating name="read-only" value={props.popularity} size="large" style={{color: "white"}} precision={0.5} readOnly />}
 			style={{backgroundColor: '#bd4378', textAlign: 'center'}}
 			/>
 			<CardContent>
-				<Typography variant="body2" color="text.secondary">
-					{props.comment && (
-						props.comment && <BlockContent blocks={props.comment || []} />
-					)}
-				</Typography>
+				{
+					!expanded && (
+						props.comment[0].children[0].text.length > 100 && (
+							<Typography variant="h6" color="text.secondary">{props.comment[0].children[0].text.substring(0, 100) + "..."}</Typography>		
+				))}
+				
+				{
+					props.comment[0].children[0].text.length < 100 && (
+						<Typography variant="h6" style={{padding: 0, margin: '-25px 0'}} color="text.secondary">{props.comment && <BlockContent blocks={props.comment || []} />}</Typography>
+					)
+				}
+
+				{
+					expanded && (
+						<Typography variant="h6" style={{padding: 0, margin: '-25px 0'}} color="text.secondary">{props.comment && <BlockContent blocks={props.comment || []} />}</Typography>
+					)
+				}
 			</CardContent>
 			<CardActions disableSpacing>
 				<Typography variant="caption" style={{fontWeight: 'bold'}} gutterBottom>{props.title} {<br/>} <span style={{fontWeight: 'normal'}}>{props.jobtitle}</span></Typography>
-				<ExpandMore
-					id={props.id}
-					expand={expanded}
-					onClick={handleExpandClick}
-					aria-expanded={expanded}
-					aria-label="show more"
-				>
-					<ExpandMoreIcon />
-				</ExpandMore>
+				{
+					props.comment[0].children[0].text.length > 100 && (
+					<ExpandMore
+						id={props.id}
+						expand={expanded}
+						onClick={handleExpandClick}
+						aria-expanded={expanded}
+						aria-label="show more"
+					>
+						<ExpandMoreIcon />
+					</ExpandMore>
+				)}
 			</CardActions>
-			<Collapse in={expanded} timeout="auto" unmountOnExit>
-				<CardContent>
-					<Typography paragraph>Method:</Typography>
-					<Typography paragraph>
-						Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10 minutes.
-					</Typography>
-				</CardContent>
-			</Collapse>
+			
 		</Card>
 	)
 }

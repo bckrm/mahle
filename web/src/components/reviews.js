@@ -67,50 +67,50 @@ const Review = () => {
       render={data => (
       	<>
       		<Typography id="reviews" variant="h4" fontWeight="bold" color="darkblue" component="div" style={{marginTop: 150, paddingBottom: 50}} textAlign="center">REVIEWS</Typography>
-	      	<Box sx={{ flexGrow: 1, width: '50%', margin: 'auto' ,backgroundColor: '#002984'}}>
-	      		<Grid container spacing={3} style={{margin: '100px auto 0 auto', width: '100%'}}>
-			        	{mapEdgesToNodes(data.allSanityReview).length <= 3 && (
-									mapEdgesToNodes(data.allSanityReview).map(node => (
-										<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} />
-						    )))}
+      		<Box sx={{ flexGrow: 1 }} style={{padding: 'auto'}}>
+	      		<Box sx={{ flexGrow: 1 }} style={{width: '50%', margin: 'auto'}}>
+		        	{mapEdgesToNodes(data.allSanityReview).length <= 3 && (
+								mapEdgesToNodes(data.allSanityReview).map(node => (
+									<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} />
+					    )))}
 
-								{
-							    mapEdgesToNodes(data.allSanityReview).length > 3 && (
-										<div style={{ width: '100%', marginTop: -150, overflow: 'hidden', margin: 'auto 20px', padding: `0 ${chevronWidth}px`}}>
-												<ItemsCarousel
-													requestToChangeActive={setActiveItemIndex}
-													activeItemIndex={activeItemIndex}
-													numberOfCards={3}
-													gutter={30}
-													leftChevron={<IconButton size="small"><ChevronLeftIcon /></IconButton>}
-													rightChevron={<IconButton size="small"><ChevronRightIcon/></IconButton>}
-													outsideChevron
-													chevronWidth={chevronWidth}
-												>
-													{mapEdgesToNodes(data.allSanityReview).map(node => (
-														<div style={{ height: 'auto', background: 'transparent' }}>
-															<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} jobtitle={node.jobtitle} />
-														</div>
-													))}
-												</ItemsCarousel>
-										</div>
-									)
-								}
-				    </Grid>
-	      		<Box sx={{ flexGrow: 1, width: '100%', backgroundColor: '#002984', marginTop: -25, paddingTop: 20, paddingBottom: 10}}>
-	      			<Grid container spacing={4} style={{marginTop: 50}}>
-	      				<Grid id="faqs" item md={8}>
-	      					<Typography variant="h4" component="div" style={{color: 'white', fontWeight: 'bold', margin: 20}}>FAQs</Typography>
-	      					<FAQs/>
-	      				</Grid>
-	      				<Grid item md={3} style={{margin: '80px 0'}}>
-	      					<Typography variant="h7" component="div" fontWeight="bold" color="white">Educational Resources</Typography>
-	      					<EducationalResources/>
-	      				</Grid>
-	      			</Grid>
-	      			<Support />
-			    	</Box>
-			    </Box>
+							{
+						    mapEdgesToNodes(data.allSanityReview).length > 3 && (
+									<div style={{ overflow: 'hidden', margin: '-20px auto 50px auto', padding: `0 ${chevronWidth}px`}}>
+											<ItemsCarousel
+												requestToChangeActive={setActiveItemIndex}
+												activeItemIndex={activeItemIndex}
+												numberOfCards={3}
+												gutter={30}
+												leftChevron={<IconButton size="small"><ChevronLeftIcon /></IconButton>}
+												rightChevron={<IconButton size="small"><ChevronRightIcon/></IconButton>}
+												outsideChevron
+												chevronWidth={chevronWidth}
+											>
+												{mapEdgesToNodes(data.allSanityReview).map(node => (
+													<div id={node.id} style={{ height: 'auto', background: 'transparent' }}>
+														<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} jobtitle={node.jobtitle} />
+													</div>
+												))}
+											</ItemsCarousel>
+									</div>
+								)
+							}
+					  </Box>
+		    		<Box sx={{ flexGrow: 1, width: '50%', backgroundColor: '#002984', margin: '-180px auto 10px auto', paddingTop: 20, paddingBottom: 5}}>
+		    			<Grid container spacing={4} style={{marginTop: 50}}>
+		    				<Grid id="faqs" item md={8}>
+		    					<Typography variant="h4" component="div" style={{color: 'white', fontWeight: 'bold', margin: 20}}>FAQs</Typography>
+		    					<FAQs/>
+		    				</Grid>
+		    				<Grid item md={3} style={{margin: '80px 0'}}>
+		    					<Typography variant="h7" component="div" fontWeight="bold" color="white">Educational Resources</Typography>
+		    					<EducationalResources/>
+		    				</Grid>
+		    			</Grid>
+		    			<Support />
+				    </Box>
+				  </Box>
 			  </>
       )}
     />
