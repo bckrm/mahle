@@ -1,0 +1,11 @@
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 5px 10px #ccc;
+}

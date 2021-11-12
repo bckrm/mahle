@@ -11,7 +11,7 @@ import ProjectPreviewGrid from "../components/project-preview-grid";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
-import ScrollToTop from "react-scroll-to-top";
+import "../components/scroll-to-top.css";
 
 require('typeface-roboto');
 
@@ -27,6 +27,25 @@ export const query = graphql`
 
 const IndexPage = props => {
   const { data, errors } = props;
+  const [showScrollToTopButton, setShowScrollToTopButton] = React.useState(false);
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        setShowScrollToTopButton(true);
+      } else {
+        setShowScrollToTopButton(false);
+      }
+    });
+  }, []);
+
+  // This function will scroll the window to the top 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // for smoothly scrolling
+    });
+  };
 
   if (errors) {
     return (
@@ -53,7 +72,9 @@ const IndexPage = props => {
     <>
       <Layout>
       </Layout>
-      <ScrollToTop smooth component={<ArrowCircleUpIcon style={{marginTop: 5}}/>} />
+      {showScrollToTopButton && (
+        <ArrowCircleUpIcon className="back-to-top" style={{fontSize: '3rem'}} onClick={scrollToTop}/>
+      )}
     </>
   );
 };

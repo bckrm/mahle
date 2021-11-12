@@ -25,11 +25,13 @@
     "dotenv": "^8.2.0",
     "gatsby": "^2.32.13",
     "gatsby-image": "^3.11.0",
+    "gatsby-link": "^4.1.0",
     "gatsby-plugin-google-analytics": "^2.11.0",
     "gatsby-plugin-image": "^0.7.2",
     "gatsby-plugin-postcss": "^3.7.0",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^2.14.4",
+    "gatsby-react-router-scroll": "^5.1.0",
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-source-sanity": "^6.0.5",
     "gatsby-transformer-sharp": "^2.12.1",
@@ -42,9 +44,11 @@
     "react-items-carousel": "^2.8.0",
     "react-player": "^1.15.2",
     "react-scroll": "^1.8.4",
-    "react-scroll-to-top": "^1.0.5",
     "styled-components": "^5.3.3",
-    "typeface-roboto": "^1.1.13"
+    "typeface-roboto": "^1.1.13",
+    "preact": "^10.5.15",
+    "preact-render-to-string": "^5.1.19",
+    "@gatsbyjs/reach-router": "^1.3.6"
   },
   "devDependencies": {
     "eslint": "^7.22.0",

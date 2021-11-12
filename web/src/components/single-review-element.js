@@ -42,29 +42,31 @@ export default function SingleReviewElement(props) {
 
   	 // style={{minHeight: 300, maxHeight: 'auto', height: '100%'}}>
 	return (
-		<Card style={{zIndex: '2'}}>
+		<Card style={{minHeight: 300}}>
 			<CardHeader
-			title={<Rating name="read-only" value={props.popularity} size="large" style={{color: "white"}} precision={0.5} readOnly />}
-			style={{backgroundColor: '#bd4378', textAlign: 'center'}}
+				title={<Rating name="read-only" value={props.popularity} size="large" style={{color: "white"}} precision={0.5} readOnly />}
+				style={{backgroundColor: '#bd4378', textAlign: 'center'}}
 			/>
 			<CardContent>
-				{
-					!expanded && (
-						props.comment[0].children[0].text.length > 100 && (
-							<Typography variant="h6" color="text.secondary">{props.comment[0].children[0].text.substring(0, 100) + "..."}</Typography>		
-				))}
-				
-				{
-					props.comment[0].children[0].text.length < 100 && (
-						<Typography variant="h6" style={{padding: 0, margin: '-25px 0'}} color="text.secondary">{props.comment && <BlockContent blocks={props.comment || []} />}</Typography>
-					)
-				}
+				<div style={{width: '85%', margin: 'auto'}}>
+					{
+						!expanded && (
+							props.comment[0].children[0].text.length > 100 && (
+								<Typography variant="h6" color="text.secondary">{props.comment[0].children[0].text.substring(0, 100) + "..."}</Typography>		
+					))}
+					
+					{
+						props.comment[0].children[0].text.length < 100 && (
+							<Typography variant="h6" style={{padding: 0, margin: '-25px 0'}} color="text.secondary">{props.comment && <BlockContent blocks={props.comment || []} />}</Typography>
+						)
+					}
 
-				{
-					expanded && (
-						<Typography variant="h6" style={{padding: 0, margin: '-25px 0'}} color="text.secondary">{props.comment && <BlockContent blocks={props.comment || []} />}</Typography>
-					)
-				}
+					{
+						expanded && (
+							<Typography variant="h6" style={{padding: 0, margin: '-25px 0'}} color="text.secondary">{props.comment && <BlockContent blocks={props.comment || []} />}</Typography>
+						)
+					}
+				</div>
 			</CardContent>
 			<CardActions disableSpacing>
 				<Typography variant="caption" style={{fontWeight: 'bold'}} gutterBottom>{props.title} {<br/>} <span style={{fontWeight: 'normal'}}>{props.jobtitle}</span></Typography>

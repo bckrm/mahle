@@ -66,9 +66,9 @@ const Review = () => {
 	    `}
       render={data => (
       	<>
-      		<Typography id="reviews" variant="h4" fontWeight="bold" color="darkblue" component="div" style={{marginTop: 150, paddingBottom: 50}} textAlign="center">REVIEWS</Typography>
-      		<Box sx={{ flexGrow: 1 }} style={{padding: 'auto'}}>
-	      		<Box sx={{ flexGrow: 1 }} style={{width: '50%', margin: 'auto'}}>
+      		<Typography id="reviews" variant="h4" fontWeight="bold" color="darkblue" component="div" style={{marginTop: 250, paddingBottom: 50}} textAlign="center">REVIEWS</Typography>
+      		<Box sx={{ flexGrow: 1 }} style={{padding: 'auto', marginTop: 400}}>
+		    		<Box sx={{ flexGrow: 1, width: '50%', backgroundColor: '#002984', margin: '-270px auto 10px auto', paddingTop: 20, paddingBottom: 5}}>
 		        	{mapEdgesToNodes(data.allSanityReview).length <= 3 && (
 								mapEdgesToNodes(data.allSanityReview).map(node => (
 									<SingleReviewElement title={node.title} comment={node._rawComment} popularity={node.popularity} id={node.id} />
@@ -76,13 +76,14 @@ const Review = () => {
 
 							{
 						    mapEdgesToNodes(data.allSanityReview).length > 3 && (
-									<div style={{ overflow: 'hidden', margin: '-20px auto 50px auto', padding: `0 ${chevronWidth}px`}}>
+									<div style={{ margin: '-330px auto 50px auto', padding: `0 ${chevronWidth}px`}}>
 											<ItemsCarousel
 												requestToChangeActive={setActiveItemIndex}
 												activeItemIndex={activeItemIndex}
 												numberOfCards={3}
 												gutter={30}
-												leftChevron={<IconButton size="small"><ChevronLeftIcon /></IconButton>}
+												slidesToScroll={3}
+												leftChevron={<IconButton size="small"><ChevronLeftIcon/></IconButton>}
 												rightChevron={<IconButton size="small"><ChevronRightIcon/></IconButton>}
 												outsideChevron
 												chevronWidth={chevronWidth}
@@ -96,8 +97,6 @@ const Review = () => {
 									</div>
 								)
 							}
-					  </Box>
-		    		<Box sx={{ flexGrow: 1, width: '50%', backgroundColor: '#002984', margin: '-180px auto 10px auto', paddingTop: 20, paddingBottom: 5}}>
 		    			<Grid container spacing={4} style={{marginTop: 50}}>
 		    				<Grid id="faqs" item md={8}>
 		    					<Typography variant="h4" component="div" style={{color: 'white', fontWeight: 'bold', margin: 20}}>FAQs</Typography>
