@@ -28,12 +28,5 @@ export default {
       title: 'Link',
       type: 'string'
     }
-  ],
-  preview: {
-    select: {
-      title: 'title',
-      description: 'description',
-      media: 'image'
-    }
-  }
+  ]
 }

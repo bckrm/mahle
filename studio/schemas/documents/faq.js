@@ -15,11 +15,5 @@ export default {
       title: 'Description',
       type: 'bioPortableText'
     },
-  ],
-  preview: {
-    select: {
-      title: 'title',
-      description: 'description'
-    }
-  }
+  ]
 }

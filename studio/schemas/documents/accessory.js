@@ -30,12 +30,5 @@ export default {
       title: 'Image',
       type: 'figure'
     }
-  ],
-  preview: {
-    select: {
-      sku: 'sku',
-      title: 'title',
-      media: 'image'
-    }
-  }
+  ]
 }

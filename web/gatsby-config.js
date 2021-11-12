@@ -10,6 +10,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
@@ -21,6 +22,7 @@ module.exports = {
         ...clientConfig.sanity,
         token,
         watchMode: !isProd,
+        graphqlTag: 'default',
         overlayDrafts: !isProd && token
       }
     }

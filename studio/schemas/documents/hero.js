@@ -39,11 +39,5 @@ export default {
       title: 'Hero Description Image',
       type: 'figure'
     },
-  ],
-  preview: {
-    select: {
-      title: 'name',
-      media: 'image'
-    }
-  }
+  ]
 }

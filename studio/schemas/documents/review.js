@@ -37,13 +37,5 @@ export default {
       title: 'Is Published?',
       type: 'boolean'
     }
-  ],
-  preview: {
-    select: {
-      name: 'reviewer',
-      publishedAt: 'publishedAt',
-      title: 'title',
-      comment: 'comment'
-    }
-  }
+  ]
 }

@@ -47,14 +47,5 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: {type: 'specification'}}]
     }
-  ],
-  preview: {
-    select: {
-      title: 'title',
-      description: '_rawDescription',
-      media: 'productImage',
-      features: 'features',
-      specifications: 'specifications'
-    }
-  }
+  ]
 }

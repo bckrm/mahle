@@ -17,6 +17,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
     <Review/>
     <Accessories/>
     <Contact/>
+    <div>{children}</div>
   </>
 );
 

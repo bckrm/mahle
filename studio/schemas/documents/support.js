@@ -21,12 +21,5 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: {type: 'detail'}}]
     },
-  ],
-  preview: {
-    select: {
-      title: 'title',
-      description: '_rawDescription',
-      details: 'details'
-    }
-  }
+  ]
 }

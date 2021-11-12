@@ -20,14 +20,13 @@ import review from './documents/review'
 // Object types
 import bioPortableText from './objects/bioPortableText'
 import figure from './objects/figure'
-import projectMember from './objects/projectMember'
 import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
-  name: 'portfolio',
+  name: 'default',
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
@@ -35,7 +34,6 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     bioPortableText,
     figure,
-    projectMember,
     projectPortableText,
     simplePortableText,
     product,
@@ -48,11 +46,8 @@ export default createSchema({
     review,
     // The following are document types which will appear
     // in the studio.
-    // category,
     feature,
     specification,
-    // person,
-    // sampleProject,
     siteSettings
   ])
 })
