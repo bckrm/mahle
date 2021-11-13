@@ -8,7 +8,6 @@ import Review from "./reviews";
 import "../styles/layout.css";
 import * as styles from "./layout.module.css";
 
-    // <div className={styles.content}>{children}</div>
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
@@ -17,7 +16,6 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
     <Review/>
     <Accessories/>
     <Contact/>
-    <div>{children}</div>
   </>
 );
 

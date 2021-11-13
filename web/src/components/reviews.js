@@ -66,7 +66,7 @@ const Review = () => {
 	    `}
       render={data => (
       	<>
-      		<Typography id="reviews" variant="h4" fontWeight="bold" color="darkblue" component="div" style={{marginTop: 250, paddingBottom: 50}} textAlign="center">REVIEWS</Typography>
+      		<Typography id="reviews" variant="h4" fontWeight="bold" color="darkblue" component="div" style={{marginTop: 550, paddingBottom: 50}} textAlign="center">REVIEWS</Typography>
       		<Box sx={{ flexGrow: 1 }} style={{padding: 'auto', marginTop: 400}}>
 		    		<Box sx={{ flexGrow: 1, width: '50%', backgroundColor: '#002984', margin: '-270px auto 10px auto', paddingTop: 20, paddingBottom: 5}}>
 		        	{mapEdgesToNodes(data.allSanityReview).length <= 3 && (

@@ -46,6 +46,7 @@ export default {
           }
         ]
       }
-    }
+    },
+    { name: 'project-users', layout: { height: 'auto' } },
   ]
 }

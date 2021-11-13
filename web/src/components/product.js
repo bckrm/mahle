@@ -25,6 +25,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Product = () => {
+	const handleClick = () => {
+    alert('You clicked the Chip.');
+  };
+
   return (
   	<StaticQuery
       query={graphql`
@@ -51,7 +55,7 @@ const Product = () => {
 	    `}
       render={data => (
       	<Box id="product" sx={{ flexGrow: 1, width: '50%', margin: 'auto'}}>
-		    	<Card sx={{ maxWidth: '100%', border: 0, boxShadow: 5, borderRadius: 0, marginTop: -35 }}>
+		    	<Card sx={{ maxWidth: '95.5%', border: 0, boxShadow: 5, borderRadius: 0, margin: '-300px auto' }}>
 			      <CardMedia
 			        component="img"
 			        height="100%"
@@ -88,7 +92,7 @@ const Product = () => {
 					        <Typography variant="h4" component="div" style={{marginTop: 20, color: '#ce467b', fontWeight: 'bold'}}>
 					        	Want it try out?
 					        	<Stack direction="row" spacing={1}>
-								      <Chip label="DOWNLOAD" style={{backgroundColor: "#ce467b", color: 'white', padding: 20, width: 290, marginTop: 20, fontSize: '1.5rem'}}/>
+								      <Chip label="DOWNLOAD" onClick={handleClick} style={{backgroundColor: "#ce467b", color: 'white', padding: 25, width: 290, marginTop: 20, fontSize: '1.5rem'}}/>
 								    </Stack>
 					        </Typography>
 					      </Grid>

@@ -66,7 +66,7 @@ const Hero = () => {
       				
       				<Box sx={{ flexGrow: 1, marginTop: 10 }}>
 								<Grid container spacing={2}>
-									<Grid item xs={6} md={6}>
+									<Grid item xs={6} md={6} style={{paddingLeft: 35}}>
 										<Item style={{fontSize: '3rem', color: 'primary', fontWeight: 'bold'}}>{data.sanityHero.herodescriptiontitle}</Item>
 										<Item style={{fontSize: '2rem'}}>{data.sanityHero.herodescriptionsubtitle}</Item>
 										<Item style={{fontSize: '2rem', marginTop: 5}}>

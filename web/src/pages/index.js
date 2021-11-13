@@ -55,12 +55,7 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site;
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
-    : [];
-
+  
   if (!site) {
     throw new Error(
       'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
